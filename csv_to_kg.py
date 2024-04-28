@@ -70,11 +70,14 @@ def keyword_to_DBpedia_entity(keyword: str,
     dbpedia_cache[keyword] = most_similar_id
 
     # For Task A.3: Extend your system to be able to automatically predict the type for the columns about cities and countries.
-    if "country" in f"{entities[largest_similarity_idx].getTypes()}".lower():
-        print("This is a country.")
-    if "city" in f"{entities[largest_similarity_idx].getTypes()}".lower(
-    ) or "town" in f"{entities[largest_similarity_idx].getTypes()}".lower():
-        print("This is a city.")
+    if largest_similarity_idx >= 0:
+        if "country" in f"{entities[largest_similarity_idx].getTypes()}".lower(
+        ):
+            print("This is a country.")
+        if "city" in f"{entities[largest_similarity_idx].getTypes()}".lower(
+        ) or "town" in f"{entities[largest_similarity_idx].getTypes()}".lower(
+        ):
+            print("This is a city.")
 
     print()
 
